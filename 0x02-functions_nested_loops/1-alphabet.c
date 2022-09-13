@@ -1,12 +1,10 @@
 #include "main.h"
 
 /**
+ * main - Prints the alphabet in lowercase.
  *
- * Main - Check the Code
- * 
- * Return: Always Zero.
- *
-*/
+ * Return: Always 0.
+ */
 
 int main(void)
 {
