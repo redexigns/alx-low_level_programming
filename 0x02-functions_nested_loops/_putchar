@@ -1,0 +1,11 @@
+/**
+ * _putchar - written the character c stdout
+ * @c: The character to print 
+ * Return: On Screen 1.
+ * On Error, -1 is returned, and erno is set appropriately.
+ *
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
