@@ -4,7 +4,7 @@
  * mul - multiples two integers
  * @a: first number 
  * @b: second number
- * Return: reti\urns result
+ * Return: returns result
  */
 
 int mul(int a, int b)
