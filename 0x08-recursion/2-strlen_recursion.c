@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* _ strlen_recursion - Return the legnth of the string
+* _strlen_recursion - Return the legnth of the string
 * @s: string to be printed
 *
 * Return: void
