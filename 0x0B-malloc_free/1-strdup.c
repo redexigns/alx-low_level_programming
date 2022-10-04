@@ -1,4 +1,4 @@
-#include "main.h"
+include "main.h"
 
 /**
  * _strdup - function that returns a pointer to newly allocated space in memory
@@ -13,6 +13,7 @@ char *_strdup(char *str)
 	char *dupl;
 
 	int i, j;
+
 	if (str == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
