@@ -1,45 +1,89 @@
 #include "lists.h"
 
 /**
- * find_listint_loop - function that finds a loop and the begining of loop
- * @head: pointer to head in function
- * Return: pointer to the begining of loop
+ * free_listp2 - function that frees a linked list
+ * @head: head of a list.
+ * Return: no return.
  */
 
-listint_t *find_listint_loop(listint_t *head)
+void free_listp2(listp_t **head)
 
 {
-	listint_t *tortoise;
+	listp_t *temp;
 
-	listint_t *hare;
+	listp_t *current;
 
-	if (head == NULL || head->next == NULL) /*If the list is null or just 1 node*/
-		return (NULL);
-
-	tortoise = hare = head; /*Start at the same point*/
-
-	while (tortoise && hare && hare->next)
-
+	if (head != NULL)
 	{
-		tortoise = tortoise->next; /*1 step hop*/
+		current = *head;
 
-		hare = hare->next->next;   /*2 steps hop*/
+		while ((temp = current) != NULL)
+		{
+			current = current->next;
 
-		if (tortoise == hare)
-			break;
-
+			free(temp);
+		}
+		*head = NULL;
 	}
 
-	if (tortoise != hare) /* if the while ended until a NULL*/
-		return (NULL);
+}
 
-	tortoise = head; /*re-start tortoise*/
+/**
+ * free_listint_safe - function that frees a linked list.
+ * @h: head of a list.
+ * Return: size of the list that was freed.
+ */
 
-	while (tortoise != hare)
+size_t free_listint_safe(listint_t **h)
+
+{
+	size_t node = 0;
+
+	listp_t *hptr, *new, *sum;
+
+	listint_t *current;
+
+	hptr = NULL;
+
+	while (*h != NULL)
 	{
-		tortoise = tortoise->next;
+		new = malloc(sizeof(listp_t));
 
-		hare = hare->next;
+		if (new == NULL)
+			exit(98);
+
+		new->p = (void *)*h;
+
+		new->next = hptr;
+
+		hptr = new;
+
+		sum = hptr;
+
+		while (sum->next != NULL)
+
+		{
+			sum = sum->next;
+			if (*h == sum->p)
+			{
+				*h = NULL;
+
+				free_listp2(&hptr);
+				return (node);
+			}
+		}
+		current = *h;
+
+		*h = (*h)->next;
+
+		free(current);
+
+		node++;
 	}
-	return (hare);
+
+	*h = NULL;
+
+	free_listp2(&hptr);
+
+	return (node);
 }
