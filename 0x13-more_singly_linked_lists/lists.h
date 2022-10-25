@@ -1,13 +1,10 @@
 #ifndef _LIST_H_
 
-
-
 #define _LIST_H_
 
 
 
 #include <stdio.h>
-
 
 #include <stdlib.h>
 
@@ -29,28 +26,13 @@
  *
  *  *
  *
- *  *
- *
- *  *
- *
  *  * Description: singly linked list node structure
- *
- *  *
- * 
- *
- *  *
  *
  *  */
 
-
-
 typedef struct listint_s
 
-
-
 {
-
-
 
 	int n;
 
@@ -59,10 +41,6 @@ typedef struct listint_s
 
 
 } listint_t;
-
-
-
-
 
 
 
